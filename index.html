@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registro de Asistencia</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Formulario del Supervisor</h1>
+    </header>
+
+    <main>
+        <form id="supervisorForm">
+            <label for="tipo">Tipo de evento:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="">Seleccione</option>
+                <option value="Junta Directiva">Junta Directiva</option>
+                <option value="Reunión">Reunión</option>
+                <option value="Capacitación">Capacitación</option>
+                <option value="Entrenamiento">Entrenamiento</option>
+            </select>
+
+            <label for="tema">Tema:</label>
+            <input type="text" id="tema" name="tema" required />
+
+            <label for="subtemas">Subtemas:</label>
+            <textarea id="subtemas" name="subtemas" rows="2"></textarea>
+
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" required />
+
+            <label for="hora">Hora:</label>
+            <input type="time" id="hora" name="hora" required />
+
+            <label for="duracion">Duración del evento:</label>
+            <input type="text" id="duracion" name="duracion" placeholder="Ej. 2 horas" required />
+
+            <label for="facilitador">Facilitador(a):</label>
+            <input type="text" id="facilitador" name="facilitador" required />
+
+            <button type="submit">Generar Código QR</button>
+        </form>
+
+        <div id="qr" style="display: none;">
+            <h2>Escanea para registrar asistencia:</h2>
+            <canvas id="qrcode"></canvas>
+            <p id="qr-url"></p>
+        </div>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
